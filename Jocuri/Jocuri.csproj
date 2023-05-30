@@ -58,10 +58,19 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mockups\MockupAutentificare.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mockups\MockupAutentificare.Designer.cs">
+      <DependentUpon>MockupAutentificare.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Rezultat.cs" />
     <Compile Include="Models\Utilizator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Mockups\MockupAutentificare.resx">
+      <DependentUpon>MockupAutentificare.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
