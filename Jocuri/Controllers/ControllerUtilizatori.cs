@@ -57,7 +57,7 @@ namespace Jocuri.Controllers
         public bool verificationPassword(string password)
         {
 
-            if (password.Count() <= 8)
+            if (password.Count() < 8)
             {
                 return false;
             }

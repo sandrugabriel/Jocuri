@@ -36,7 +36,7 @@ namespace Jocuri.Panels
 
             // PnlAutentificare
             this.ClientSize = new System.Drawing.Size(694, 511);
-            this.Name = "pnlAutentificare";
+            this.Name = "PnlAutentificare";
 
             this.pctQRCode = new System.Windows.Forms.PictureBox();
             this.lblEmail = new System.Windows.Forms.Label();
@@ -78,31 +78,32 @@ namespace Jocuri.Panels
             this.lblParola.Text = "Parola";
              
             // txtEmail
-            this.txtEmail.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 12F, System.Drawing.FontStyle.Regular);
             this.txtEmail.Location = new System.Drawing.Point(314, 177);
             this.txtEmail.Size = new System.Drawing.Size(281, 34);
             
             // txtParola
-            this.txtParola.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtParola.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 12F, System.Drawing.FontStyle.Regular);
             this.txtParola.Location = new System.Drawing.Point(314, 275);
             this.txtParola.UseSystemPasswordChar = true;
             this.txtParola.Size = new System.Drawing.Size(281, 34);
              
             // btnQRCode
-            this.btnQRCode.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQRCode.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 13.8F, System.Drawing.FontStyle.Regular);
             this.btnQRCode.Location = new System.Drawing.Point(43, 398);
             this.btnQRCode.Size = new System.Drawing.Size(137, 55);
             this.btnQRCode.Text = "QRCode";
              
             // btnContNou
-            this.btnContNou.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnContNou.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 13.8F, System.Drawing.FontStyle.Regular);
             this.btnContNou.Location = new System.Drawing.Point(446, 398);
             this.btnContNou.Name = "btnContNou";
             this.btnContNou.Size = new System.Drawing.Size(139, 55);
             this.btnContNou.Text = "Cont Nou";
+            this.btnContNou.Click += new EventHandler(btnContNou_Click);
             
             // btnLogare
-            this.btnLogare.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogare.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 13.8F, System.Drawing.FontStyle.Regular);
             this.btnLogare.Location = new System.Drawing.Point(246, 398);
             this.btnLogare.Size = new System.Drawing.Size(139, 55);
             this.btnLogare.Text = "Logare";
@@ -117,15 +118,6 @@ namespace Jocuri.Panels
 
         }
 
-        public void errors()
-        {
-            erori.Clear();
-
-
-
-
-        }
-
         private void btnLogare_Click(object sender, EventArgs e)
         {
 
@@ -135,7 +127,7 @@ namespace Jocuri.Panels
                 int id = controllerUtilizatori.idByemailPass(txtParola.Text, txtEmail.Text);
                 string email = txtEmail.Text;
                 string pass = txtParola.Text;
-                this.form.removepnl("pnlLogare");
+                this.form.removepnl("PnlAutentificare");
                 Utilizator utilizator = controllerUtilizatori.utilizatorbyId(id);
             }
             else
@@ -150,6 +142,13 @@ namespace Jocuri.Panels
 
         }
 
+        private void btnContNou_Click(object sender, EventArgs e)
+        {
+
+            this.form.removepnl("PnlAutentificare");
+            this.form.Controls.Add(new PnlContNou(form));
+
+        }
 
 
 
