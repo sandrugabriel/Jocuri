@@ -66,8 +66,14 @@
     </Compile>
     <Compile Include="Models\Rezultat.cs" />
     <Compile Include="Models\Utilizator.cs" />
+    <Compile Include="Panels\PnlAutentificare.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Mockups\MockupAutentificare.resx">
       <DependentUpon>MockupAutentificare.cs</DependentUpon>
     </EmbeddedResource>
