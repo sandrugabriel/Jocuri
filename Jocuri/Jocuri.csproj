@@ -39,6 +39,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,6 +59,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mockups\MockupAlegeJoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mockups\MockupAlegeJoc.Designer.cs">
+      <DependentUpon>MockupAlegeJoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mockups\MockupAutentificare.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +73,9 @@
     </Compile>
     <Compile Include="Models\Rezultat.cs" />
     <Compile Include="Models\Utilizator.cs" />
+    <Compile Include="Panels\PnlAlegeJoc.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Panels\PnlAutentificare.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -76,6 +86,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mockups\MockupAlegeJoc.resx">
+      <DependentUpon>MockupAlegeJoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mockups\MockupAutentificare.resx">
       <DependentUpon>MockupAutentificare.cs</DependentUpon>

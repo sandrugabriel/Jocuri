@@ -33,6 +33,9 @@ namespace Jocuri.Panels
             form = form1;
             erori = new List<string>();
             controllerUtilizatori = new ControllerUtilizatori();
+            this.form.Size = new System.Drawing.Size(694, 511);
+            this.form.MinimumSize = new System.Drawing.Size(694, 511);
+            this.form.MaximumSize = new System.Drawing.Size(694, 511);
 
             // PnlAutentificare
             this.ClientSize = new System.Drawing.Size(694, 511);
@@ -129,6 +132,7 @@ namespace Jocuri.Panels
                 string pass = txtParola.Text;
                 this.form.removepnl("PnlAutentificare");
                 Utilizator utilizator = controllerUtilizatori.utilizatorbyId(id);
+                this.form.Controls.Add(new PnlAlegeJoc(form, utilizator));
             }
             else
             {
@@ -149,8 +153,6 @@ namespace Jocuri.Panels
             this.form.Controls.Add(new PnlContNou(form));
 
         }
-
-
 
     }
 }
