@@ -32,6 +32,9 @@ namespace Jocuri.Panels
             form = form1;
             controllerUtilizatori = new ControllerUtilizatori();
             erori = new List<string>();
+            this.form.Size = new System.Drawing.Size(694, 511);
+            this.form.MinimumSize = new System.Drawing.Size(694, 511);
+            this.form.MaximumSize = new System.Drawing.Size(694, 511);
 
             //PnlContNou
             this.Size = new System.Drawing.Size(694, 511);
@@ -94,7 +97,7 @@ namespace Jocuri.Panels
              
             // btnRenunta
             this.btnRenunta.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 13.8F, System.Drawing.FontStyle.Regular);
-            this.btnRenunta.Location = new System.Drawing.Point(365, 400);
+            this.btnRenunta.Location = new System.Drawing.Point(365, 370);
             this.btnRenunta.Name = "btnRenunta";
             this.btnRenunta.Size = new System.Drawing.Size(146, 65);
             this.btnRenunta.Text = "Renunta";
@@ -102,7 +105,7 @@ namespace Jocuri.Panels
              
             // btnInregistrare
             this.btnInregistrare.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 13.8F, System.Drawing.FontStyle.Regular);
-            this.btnInregistrare.Location = new System.Drawing.Point(176, 400);
+            this.btnInregistrare.Location = new System.Drawing.Point(176, 370);
             this.btnInregistrare.Name = "btnInregistrare";
             this.btnInregistrare.Size = new System.Drawing.Size(146, 65);
             this.btnInregistrare.Text = "Inregistrare";
@@ -217,6 +220,7 @@ namespace Jocuri.Panels
                 Utilizator utilizator = new Utilizator(textul);
 
                 this.form.removepnl("PnlContNou");
+                this.form.Controls.Add(new PnlAlegeJoc(form, utilizator));
             }
 
 
@@ -229,8 +233,6 @@ namespace Jocuri.Panels
             this.form.Controls.Add(new PnlAutentificare(form));
 
         }
-
-
 
     }
 }

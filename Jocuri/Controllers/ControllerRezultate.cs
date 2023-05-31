@@ -39,9 +39,39 @@ namespace Jocuri.Controllers
             streamReader.Close();
         }
 
+        public List<Rezultat> getTestMemorie(int idUtilizator)
+        {
+
+            List<Rezultat> rezultats = new List<Rezultat>();
+
+            for(int i=0;i<rezultate.Count;i++)
+            {
+                if (rezultate[i].getIdUtilizator() == idUtilizator && rezultate[i].getTipJoc() == 0)
+                {
+                    rezultats.Add(rezultate[i]);
+                }
+            }
 
 
+            return rezultats;
+        }
 
+        public List<Rezultat> getPopice(int idUtilizator)
+        {
+
+            List<Rezultat> rezultats = new List<Rezultat>();
+
+            for (int i = 0; i < rezultate.Count; i++)
+            {
+                if (rezultate[i].getIdUtilizator() == idUtilizator && rezultate[i].getTipJoc() == 1)
+                {
+                    rezultats.Add(rezultate[i]);
+                }
+            }
+
+
+            return rezultats;
+        }
 
 
     }

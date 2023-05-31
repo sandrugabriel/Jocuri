@@ -92,7 +92,6 @@ namespace Jocuri.Controllers
 
         }
 
-
         public string namebyid(int id)
         {
 
@@ -192,9 +191,6 @@ namespace Jocuri.Controllers
 
             return null;
         }
-
-
-
 
     }
 }

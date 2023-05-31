@@ -1,4 +1,5 @@
-﻿using Jocuri.Panels;
+﻿using Jocuri.Models;
+using Jocuri.Panels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,8 +17,8 @@ namespace Jocuri
         public Form1()
         {
             InitializeComponent();
-
-           this.Controls.Add(new PnlAutentificare(this));
+            Utilizator utilizator = new Utilizator("1;ion@oti.ro;ion;noi");
+           this.Controls.Add(new PnlAlegeJoc(this,utilizator));
 
         }
 
