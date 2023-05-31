@@ -73,6 +73,47 @@ namespace Jocuri.Controllers
             return rezultats;
         }
 
+        public void save(string textul)
+        {
+
+            string text = textul;
+            string path = Application.StartupPath + @"/data/Rezultate.txt";
+            File.AppendAllText(path, text + "\n");
+
+
+        }
+
+        public Rezultat getREzultatById(int id)
+        {
+
+            for (int i = 0; i < rezultate.Count; i++)
+            {
+                if (rezultate[i].getId() == id)
+                {
+                    return rezultate[i];
+                }
+            }
+
+            return null;
+        }
+
+        public int generareId()
+        {
+            Random random = new Random();
+
+            int id = random.Next();
+            while (this.getREzultatById(id) != null)
+            {
+
+                id = random.Next();
+
+            }
+
+
+            return id;
+
+        }
+
 
     }
 }
