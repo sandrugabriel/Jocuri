@@ -39,6 +39,7 @@ namespace Jocuri.Panels
             //PnlAlegeJoc
             this.Size = new System.Drawing.Size(886, 510);
             this.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));            this.Name = "PnlAlegeJoc";
+            this.Name = "PnlAlegeJoc";
 
             ChartArea chartArea1 = new ChartArea();
             Legend legend1 = new Legend();
@@ -113,6 +114,7 @@ namespace Jocuri.Panels
             this.btnTestMemorie.Name = "btnTestMemorie";
             this.btnTestMemorie.Size = new System.Drawing.Size(191, 65);
             this.btnTestMemorie.Text = "Testeaza Memoria";
+            this.btnTestMemorie.Click += new EventHandler(btnTestMemorie_Click);
              
             // btnQR
             this.btnQR.Location = new System.Drawing.Point(553, 385);
@@ -128,6 +130,14 @@ namespace Jocuri.Panels
             
         }
 
+        private void btnTestMemorie_Click(object sender, EventArgs e)
+        {
+
+            this.form.removepnl("PnlAlegeJoc");
+            this.form.Controls.Add(new PnlTestMemorie(form, utilizator, 3));
+
+
+        }
 
 
     }

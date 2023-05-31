@@ -18,7 +18,7 @@ namespace Jocuri
         {
             InitializeComponent();
             Utilizator utilizator = new Utilizator("1;ion@oti.ro;ion;noi");
-           this.Controls.Add(new PnlAlegeJoc(this,utilizator));
+           this.Controls.Add(new PnlCastigat(this,utilizator));
 
         }
 

@@ -79,7 +79,13 @@
     <Compile Include="Panels\PnlAutentificare.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Panels\PnlCastigat.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Panels\PnlContNou.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panels\PnlTestMemorie.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
