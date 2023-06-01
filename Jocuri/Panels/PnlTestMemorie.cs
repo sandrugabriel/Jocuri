@@ -35,12 +35,12 @@ namespace Jocuri.Panels
 
         ControllerRezultate controllerRezultate;
 
-        public PnlTestMemorie(Form1 form1, Utilizator utilizator1, int n1) {
+        public PnlTestMemorie(Form1 form1, Utilizator utilizator1, int n1, int score2) {
 
             form = form1;
             score = 0;
             contor = 0;
-            score1 = 0;
+            score1 = score2;
             utilizator = utilizator1;
             timp = 100;
             n = n1;
@@ -194,7 +194,6 @@ namespace Jocuri.Panels
                 PictureBox pictureBox = new PictureBox();
                 this.Controls.Add(pictureBox);
                 pictureBox.Size = new Size(100, 100);
-                pictureBox.Location = new Point(x, 20);
                 pictureBox.Name = listNumele[i];
                 pictureBox.BackColor = Color.LightGreen;
                 pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -208,7 +207,6 @@ namespace Jocuri.Panels
 
                 Label lblNume = new Label();
                 this.Controls.Add(lblNume);
-                lblNume.Location = new Point(x, 155);
                 lblNume.Name = listNumele[i];
                 //lblNume.Text = "\n\n\n" + listNumele[i];
                 lblNume.BackColor = Color.LightGreen;
@@ -220,6 +218,46 @@ namespace Jocuri.Panels
                     lbl.Click += Label_Click;
                 }
 
+               
+            }
+
+            Random random = new Random();
+            List<PictureBox> listaAmestecata = new List<PictureBox>();
+
+            while (listPictureBoxes.Count > 0)
+            {
+                int indexAleator = random.Next(0, listPictureBoxes.Count);
+                PictureBox pictureBox = listPictureBoxes[indexAleator];
+                listaAmestecata.Add(pictureBox);
+                listPictureBoxes.RemoveAt(indexAleator);
+            }
+            listPictureBoxes = listaAmestecata;
+
+
+            Random random1 = new Random();
+            List<Label> listaAmestecata1 = new List<Label>();
+
+            while (listLabels.Count > 0)
+            {
+                int indexAleator = random.Next(0, listLabels.Count);
+                Label label = listLabels[indexAleator];
+                listaAmestecata1.Add(label);
+                listLabels.RemoveAt(indexAleator);
+            }
+            listLabels = listaAmestecata1;
+
+            foreach (var pictureBox in listPictureBoxes)
+            {              
+                pictureBox.Location = new Point(x, 20);
+                x += 115;
+            }
+
+            x = 20;
+
+            foreach (var label in listLabels)
+            {
+
+                label.Location = new Point(x, 155); 
                 x += 115;
             }
 
@@ -272,12 +310,13 @@ namespace Jocuri.Panels
             timp--;
             this.lblTimp.Text = "Timp Ramas: " + timp;
 
-            if(timp == 0)
+            if(timp <= 0)
             {
                 this.timer.Enabled = false;
                 this.timer.Stop();
                 MessageBox.Show("Ai pierdut!!","Ghinion!",MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                string text = controllerRezultate.generareId() + ";" + 0.ToString() + ";" + utilizator.getId() + ";" + 0.ToString() + ";" + DateTime.Now.ToString();
+                string text = controllerRezultate.generareId() + ";" + 0.ToString() + ";" + utilizator.getId() + ";" + 0.ToString() + ";" + DateTime.Today.ToString();
+                controllerRezultate.save(text);
                 this.form.removepnl("PnlTestMemorie");
                 this.form.Controls.Add(new PnlAlegeJoc(form, utilizator));
             }
@@ -287,6 +326,7 @@ namespace Jocuri.Panels
 
                 if(clickedLabel.Name == clickedPictureBox.Name)
                 {
+                    score1 = score1 +10;
                     listPctCorrect.Add(clickedPictureBox);
                     listLblCorrect.Add(clickedLabel);
                     clickedLabel.Enabled = false;
@@ -319,7 +359,6 @@ namespace Jocuri.Panels
 
                     }
                     score++;
-                    score1 = score1 * 3;
                 }
                 else
                 {
@@ -368,7 +407,8 @@ namespace Jocuri.Panels
                 {
                     timer.Stop();
                     timer.Enabled = false;
-                    string text = controllerRezultate.generareId() + ";" + 0.ToString() + ";" + utilizator.getId() + ";" + score1.ToString() + ";" + DateTime.Now.ToString();
+                    string text = controllerRezultate.generareId() + ";" + 0.ToString() + ";" + utilizator.getId() + ";" + score1.ToString() + ";" + DateTime.Today.ToString();
+                    controllerRezultate.save(text);
                     this.form.removepnl("PnlTestMemorie");
                     this.form.Controls.Add(new PnlCastigat(form,utilizator));
                 }
@@ -376,7 +416,7 @@ namespace Jocuri.Panels
                 {
                     MessageBox.Show("             Felicitari!\n  Ai trecut la nivelul urmator!!", "Felicitari", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.form.removepnl("PnlTestMemorie");
-                    this.form.Controls.Add(new PnlTestMemorie(form, utilizator, n));
+                    this.form.Controls.Add(new PnlTestMemorie(form, utilizator, n, score1));
                 }
             }
 

@@ -71,6 +71,12 @@
     <Compile Include="Mockups\MockupAutentificare.Designer.cs">
       <DependentUpon>MockupAutentificare.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mockups\mockupPopice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mockups\mockupPopice.Designer.cs">
+      <DependentUpon>mockupPopice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Rezultat.cs" />
     <Compile Include="Models\Utilizator.cs" />
     <Compile Include="Panels\PnlAlegeJoc.cs">
@@ -83,6 +89,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Panels\PnlContNou.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panels\PnlPopice.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Panels\PnlTestMemorie.cs">
@@ -98,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mockups\MockupAutentificare.resx">
       <DependentUpon>MockupAutentificare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mockups\mockupPopice.resx">
+      <DependentUpon>mockupPopice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
