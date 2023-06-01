@@ -103,7 +103,7 @@ namespace Jocuri.Panels
 
             }
 
-            for (int i = 0; i < listTestMemorie.Count; i++)
+            for (int i = 0; i < listPopice.Count; i++)
             {
                 chart.Series["Series2"].Points.AddXY(listPopice[i].getData(), listPopice[i].getpunctaj());
 
@@ -127,6 +127,7 @@ namespace Jocuri.Panels
             this.btnPopice.Name = "btnPopice";
             this.btnPopice.Size = new System.Drawing.Size(191, 65);
             this.btnPopice.Text = "Popice cu litere";
+            this.btnPopice.Click += new EventHandler(btnPopice_Click);
             
         }
 
@@ -134,11 +135,17 @@ namespace Jocuri.Panels
         {
 
             this.form.removepnl("PnlAlegeJoc");
-            this.form.Controls.Add(new PnlTestMemorie(form, utilizator, 3));
+            this.form.Controls.Add(new PnlTestMemorie(form, utilizator, 3,1));
 
 
         }
+        private void btnPopice_Click(object sender, EventArgs e)
+        {
 
+            this.form.removepnl("PnlAlegeJoc");
+            this.form.Controls.Add(new PnlPopice(form, utilizator));
+
+        }
 
     }
 }
